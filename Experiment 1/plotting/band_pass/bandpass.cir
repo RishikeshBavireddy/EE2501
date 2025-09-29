@@ -1,0 +1,15 @@
+*Netlist
+Vin in 0 AC 5
+L in x 1m
+C x out 50nF
+R out 0 440
+
+
+.control
+AC DEC 30 10 200k
+set wr_onespace
+set wr_vecnamesng
+set wr_singlescale
+wrdata band.dat 20*log10(abs(v(out)/v(in)))  phase(v(out)) 
+.endc
+.end

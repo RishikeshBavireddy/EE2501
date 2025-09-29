@@ -1,0 +1,13 @@
+*Netlist
+Vin in 0 AC 5
+C1 in x 25n
+R1 x 0 660
+C2 x out 15p
+R2 out 0 1meg
+
+.control
+AC DEC 30 10 10meg
+set wr_singlescale
+wrdata passive.dat 20*log10(abs(v(out)/v(in))) phase(v(out))
+.endc
+.end

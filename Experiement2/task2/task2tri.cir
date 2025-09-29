@@ -1,0 +1,24 @@
+*Full Wave Bridge Rectifier Simulation with triangular input
+
+BTRI in 0 V = { 5 * (2/pi) * asin( sin( 2*pi*7000*time ) ) }
+
+D1 in n1 DI_1N4007
+D2 0 n1 DI_1N4007
+D3 n2 in DI_1N4007
+D4 n2 0 DI_1N4007
+
+
+R1 n1 n2 22k
+C1 n1 n2 1u
+*C value is fine from 1u to 47u
+
+.include 1N4007.mod
+
+.tran 0.1us 1ms
+.control
+  run
+  set wr_singlescale
+  wrdata task2tri.dat  v(n1,n2)
+.endc
+
+.end

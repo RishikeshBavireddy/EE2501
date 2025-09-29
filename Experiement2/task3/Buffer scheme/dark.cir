@@ -1,0 +1,17 @@
+*Netlist
+Vcc vcc 0 5
+Vee vee 0 -5
+V1 in 0 DC 1
+R1 out p 150
+D1 p 0 DI_1N4007
+XU1 in out vcc vee out LM358/NS
+.include LM358.mod
+.include 1N4007.mod
+
+.control
+dc V1 0 2.5 0.1
+set wr_singlescale
+wrdata darkFor.dat v(p) 6.66*v(out,p)
+.endc
+
+.end

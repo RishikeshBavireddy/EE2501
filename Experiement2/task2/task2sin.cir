@@ -1,0 +1,23 @@
+*Full Wave Bridge Rectifier Simulation with sinusoid input
+
+V1 in 0 SIN(0 5 7000)
+
+D1 in n1 DI_1N4007
+D2 0 n1 DI_1N4007
+D3 n2 in DI_1N4007
+D4 n2 0 DI_1N4007
+
+
+R1 n1 n2 22k
+C1 n1 n2 1u
+*C value anything from 1u to 47u is fine
+.include 1N4007.mod
+
+.tran 0.1us 1ms
+.control
+  run
+  set wr_singlescale
+  wrdata task2sin.dat  v(n1,n2)
+.endc
+
+.end

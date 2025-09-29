@@ -1,0 +1,14 @@
+*Netlist
+Vin in 0 AC 10
+C in out 15p
+R out 0 1Meg
+
+
+.control
+AC DEC 30 10 1meg
+set wr_onespace
+set wr_vecnamesng
+set wr_singlescale
+wrdata stage1.dat 20*log10(abs(v(out)/v(in)))  phase(v(out))
+.endc
+.end

@@ -1,0 +1,14 @@
+*Netlist
+
+V1 in 0 DC 1
+R1 in n 100
+D1 0 n DI_1N4007
+.include 1N4007.mod
+
+.control
+dc V1 10 2.5 -0.5
+set wr_singlescale
+wrdata reverse.dat v(n)
+.endc
+
+.end
