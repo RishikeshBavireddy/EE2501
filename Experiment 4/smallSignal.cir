@@ -1,0 +1,24 @@
+BJT Small signal analysis
+
+.include bc547.mod
+
+Vcc n1 0 DC 0.128
+Vbb n2 0 DC 2 AC 0.001
+
+Rc n1 Vc 470
+Rb n2 Vb 47000
+Q1 Vc Vb 0 BC547
+
+.ac dec 10 100 1Meg
+
+.control
+run
+* plot @q1[ic]
+* plot (v(n1) - v(Vc))/470
+* (v(n2) - v(Vb))/47000
+plot ((v(n1) - v(Vc))/470) / ((v(n2) - v(Vb))/47000)
+
+wrdata beta_vs_freq.dat ((v(n1)-v(Vc))/470) / ((v(n2)-v(Vb))/47000)
+
+.endc
+.end
