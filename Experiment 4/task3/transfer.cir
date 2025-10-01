@@ -1,0 +1,20 @@
+*SPICE SIMULATION FOR CHARACTERESTICS OF MOSFET
+
+.include nmos.mod
+
+Vds nd ns DC 3
+Vgs ng ns DC 1
+
+Q1 nd ng ns ***IDK
+
+
+.dc VGS 1 2 0.1 //1 to 2 0.1 increment for Vgs
+
+.control
+run
+
+plot I(Vds) vs Vgs
+wrdata Id_vs_Vgs.dat Vgs I(Vds)
+
+.endc
+.end
