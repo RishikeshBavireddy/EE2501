@@ -14,7 +14,7 @@ C1 n1 n2 1u
 
 .include 1N4007.mod
 
-.tran 0.1us 1ms
+.tran 1us 1s
 .control
   run
   set wr_singlescale
